@@ -33,3 +33,4 @@ function myFunction() {
   const config = getConfig();
   Logger.log('Config loaded (values hidden): ' + Object.keys(config).join(', '));
 }
+// test change
