@@ -27,16 +27,6 @@ jobs:
           ${{ secrets.CLASPRC_JSON }}
           EOF
 
-      - name: Debug - check credentials file (remove after fixing)
-        run: |
-          echo "File size:"
-          wc -c ~/.clasprc.json
-          echo "First 20 chars:"
-          head -c 20 ~/.clasprc.json
-          echo ""
-          echo "Valid JSON check:"
-          node -e "JSON.parse(require('fs').readFileSync(process.env.HOME + '/.clasprc.json', 'utf8')); console.log('VALID JSON')" || echo "INVALID JSON"
-
       - name: Create .clasp.json
         run: |
           echo '{"scriptId":"${{ secrets.SCRIPT_ID }}","rootDir":"./src"}' > .clasp.json
